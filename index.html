@@ -120,10 +120,27 @@
       }
 
       .logo {
-        font-size: 22px;
-        letter-spacing: 0.2em;
-        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+      .logo-jp {
+        font-family: var(--font-heading);
+        font-size: 26px;
+        letter-spacing: 0.15em;
+        font-weight: 500;
         color: var(--color-main);
+        line-height: 1;
+      }
+      .logo-en {
+        font-family: var(--font-heading);
+        font-size: 11px;
+        letter-spacing: 0.4em;
+        font-weight: 400;
+        color: var(--color-text-light);
+        line-height: 1;
       }
       .header-right {
         display: flex;
@@ -201,10 +218,10 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.9),
-          rgba(248, 249, 250, 0.4)
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.3) 100%
         );
       }
 
@@ -395,12 +412,13 @@
         flex: 1;
         position: relative;
       }
-      .activity-image img,
-      .character-image img {
+      .activity-image img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 12px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
       }
 
       .clean-shadow img {
@@ -596,6 +614,10 @@
         .fv-catchphrase {
           font-size: 34px;
         }
+        .fv-image img {
+          transform: rotate(90deg) scale(1.8);
+          object-position: center center;
+        }
         .summary-cards {
           grid-template-columns: 1fr;
         }
@@ -629,10 +651,12 @@
   </head>
   <body class="loaded">
     <header class="header">
-      <h1 class="logo">OWAN</h1>
+      <h1 class="logo">
+        <span class="logo-jp">おわん</span>
+        <span class="logo-en">- OWAN -</span>
+      </h1>
       <div class="header-right">
         <nav class="nav">
-          <a href="#summary">要点</a>
           <a href="#concept">理念</a>
           <a href="#activities">活動内容</a>
           <a href="#character">ご案内役</a>
@@ -652,7 +676,7 @@
     <div class="fv-container">
       <div class="fv-image slide-in">
         <!-- パスと拡張子を修正 -->
-        <img src="assets/img/img_01.png" alt="OWAN Project First View" />
+        <img src="assets/img/fv_washi_bg.png" alt="OWAN Project First View" />
         <div class="fv-overlay"></div>
       </div>
       <div class="fv-content delay-2">
@@ -726,8 +750,7 @@
             </p>
           </div>
           <div class="activity-image clean-shadow">
-            <!-- パスと拡張子を修正 -->
-            <img src="assets/img/mockup.png" alt="Streaming Mockup" />
+            <img src="assets/img/owan_02.jpg" alt="活動風景" />
           </div>
         </div>
 
@@ -776,48 +799,13 @@
               言葉の壁を越えて世界中で親しまれる「和装のねこ」をキャラクター化し、親しみやすい入り口を提供します。<br /><br />愛らしいだけでなく、神聖な場における正しい作法や歴史を誠実に案内するナビゲーターとして機能し、日本の精神文化への深い理解を促します。
             </p>
           </div>
-          <div class="character-image floating-anim">
-            <div
-              class="mockup-placeholder"
-              style="
-                background: #f0f0f0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                max-width: 380px;
-                aspect-ratio: 1/1;
-                color: #888;
-                border-radius: 50%;
-                margin: 0 auto;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-              "
-            >
-              <svg
-                width="64"
-                height="64"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span
-                style="
-                  margin-top: 16px;
-                  font-size: 14px;
-                  letter-spacing: 0.1em;
-                  font-weight: 500;
-                  font-family: serif;
-                "
-                >実写画像仮当て（着ぐるみ等）</span
-              >
-            </div>
+          <div class="character-image">
+            <img 
+              src="assets/img/owan_01.jpg" 
+              alt="ご案内役" 
+              class="floating-anim" 
+              style="width: 100%; max-width: 380px; aspect-ratio: 1/1; object-fit: cover; border-radius: 50%; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); margin: 0 auto; display: block;" 
+            />
           </div>
         </div>
       </div>
